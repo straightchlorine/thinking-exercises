@@ -1,6 +1,15 @@
 # Compiled class file
 *.class
 
+# MP3 files
+*.mp3
+
+# PDF files
+*.pdf
+
+# Excel files
+*.xlsx
+
 # Log file
 *.log
 
