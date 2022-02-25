@@ -1,0 +1,9 @@
+1. 
+422
+2. 
+500 - liczba liczb podzielnych przez 2.
+123 - liczba liczb podzielnych przez 8.
+3.
+925 - indeks wiersza zawierającego największą liczbę
+859 - indeks wiersza zwierającego najmniejszą liczbę
+

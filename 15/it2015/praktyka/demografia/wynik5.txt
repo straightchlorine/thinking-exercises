@@ -1,0 +1,18 @@
+5.1
+
+A: 33 929 579
+B: 41 736 619
+C: 57 649 017
+D: 36 530 387
+
+5.2
+
+19 wojewódźtw spełnia ten warunek.
+W tym regiony:
+
+	A: 3
+	B: 4
+	C: 8
+	D: 4
+
+5.3
