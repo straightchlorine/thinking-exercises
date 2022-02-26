@@ -299,7 +299,6 @@ public class Demography {
 	}
 
 	protected static <T> void display(ArrayList<T> list) {
-		int counter = 0;
 		for (T currentElement : list) {
 			System.out.println(currentElement);
 		}
