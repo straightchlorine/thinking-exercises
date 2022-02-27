@@ -8,11 +8,37 @@ import java.util.regex.Pattern;
 
 class ThirdExercise extends PI {
 	
+	private static double absoluteError(double approximate) {
+		return Math.abs(Math.PI - approximate);
+	}
+	
+	
+	private static double getApproximation(ArrayList<Integer> xCoords, ArrayList<Integer> yCoords, Integer n) {
+		double squareArea = Math.pow(400, 2);
+		double circleK = Math.pow(200, 2);
+	
+		double approximate = (squareArea * (SecondExercise.getInside(xCoords, yCoords, n) / n)) / circleK;
+
+		return approximate;
+	}
+	
+	protected static void summary(ArrayList<Integer> xCoords, ArrayList<Integer> yCoords) {
+		ArrayList<Double> absoluteErrors = new ArrayList<>();
+		for(int i = 1; i <= 1700; i++) {
+			absoluteErrors.add(absoluteError(getApproximation(xCoords, yCoords, i)));
+			System.out.println(absoluteErrors.get(i - 1));
+		}
+		
+		System.out.println("--- 1000 and 1700 ---");
+		System.out.println(SecondExercise.roundUpToFour(absoluteErrors.get(999)));
+		System.out.println(SecondExercise.roundUpToFour(absoluteErrors.get(1699)));
+	}
+	
 }
 
 class SecondExercise extends PI {
 	
-	private static boolean inCircle(Integer xCoord, Integer yCoord) {
+	protected static boolean inCircle(Integer xCoord, Integer yCoord) {
 		boolean inside = false;
 
 		if ((Math.pow(xCoord - 200, 2) + Math.pow(yCoord - 200, 2)) <= 40000)
@@ -21,7 +47,7 @@ class SecondExercise extends PI {
 		return inside;
 	}
 	
-	private static double getInside(ArrayList<Integer> xCoords, ArrayList<Integer> yCoords, int n) {
+	protected static double getInside(ArrayList<Integer> xCoords, ArrayList<Integer> yCoords, int n) {
 		int inside = 0;
 			
 		for(int i = 0; i < n; i++) {
@@ -32,7 +58,7 @@ class SecondExercise extends PI {
 		return inside;
 	}
 	
-	private static double roundUpToFour(double toRound) {
+	protected static double roundUpToFour(double toRound) {
 		return Math.round(toRound * 10000.0) / 10000.0;
 	}
 	
@@ -132,6 +158,9 @@ public class PI {
 		FirstExercise.summary(xCoords, yCoords);
 		System.out.println("### First Exercise ###");
 		SecondExercise.summary(xCoords, yCoords);
+		System.out.println("### Thrid Exercise ###");
+		ThirdExercise.summary(xCoords, yCoords);
+
 	}
 
 }
