@@ -26,7 +26,8 @@ class ThirdExercise extends PI {
 		ArrayList<Double> absoluteErrors = new ArrayList<>();
 		for(int i = 1; i <= 1700; i++) {
 			absoluteErrors.add(absoluteError(getApproximation(xCoords, yCoords, i)));
-			System.out.println(absoluteErrors.get(i - 1));
+			String approximation = Double.toString(absoluteErrors.get(i - 1)).replace('.', ',');
+			System.out.println(approximation);
 		}
 		
 		System.out.println("--- 1000 and 1700 ---");
