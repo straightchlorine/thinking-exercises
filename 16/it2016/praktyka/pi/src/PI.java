@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+class ThirdExercise extends PI {
+	
+}
+
 class SecondExercise extends PI {
 	
 	private static boolean inCircle(Integer xCoord, Integer yCoord) {
