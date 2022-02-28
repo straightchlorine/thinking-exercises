@@ -18,4 +18,5 @@ Uczniowie nie zameldowani w miasteczku akademickim to:
 	PIETRASZEWSKI STEFAN
 	SIECZKOWSKI MACIEJ
 	ZALESKA JULIA
+5.5
 
