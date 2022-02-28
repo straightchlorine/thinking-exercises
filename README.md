@@ -1,2 +1,4 @@
-# java-exercise
-programming exercises; concerning more problem solving than java language
+# thinking-exercises
+programming exercises; concerning mainly problem solving
+
+tools: java, sql (as things stand now)
