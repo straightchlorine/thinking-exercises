@@ -49,8 +49,6 @@ where studenci.pesel not in (select meldunek.pesel from meldunek)
 order by Student asc;
 
 -- Zadanie 5.5
--- zwroc tytuly ksiazek z kazdego pokoju
-
 
 select 
 	sum(books) as 'Wypożyczone lektury'
