@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+class ThirdExercise extends Caesar {
+	
+}
+
 class SecondExercise extends Caesar {
 	
 	protected static String decipher(String cipher, int offset) {	
@@ -93,7 +97,7 @@ public class Caesar {
 		loadData();
 		
 		for(int i = 0; i < sourceWords.size(); i++) {
-			//System.out.println(FirstExercise.cipher(sourceWords.get(i), 107));
+			System.out.println(FirstExercise.cipher(sourceWords.get(i), 107));
 		}
 			
 		loadDataCipher();
