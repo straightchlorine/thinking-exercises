@@ -9,11 +9,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class ThirdExercise extends Caesar {
-
 	public static String incorrect(String source, String proposedCipher) {
-
 		boolean incorrect = true;
-
 		for (int i = 1; i <= 25; i++) {
 			String ciphered = FirstExercise.cipher(source, i);
 
@@ -24,7 +21,6 @@ class ThirdExercise extends Caesar {
 			if (ciphered.equals(proposedCipher)) {
 				incorrect = false;
 				break;
-
 			}
 		}
 
@@ -33,16 +29,12 @@ class ThirdExercise extends Caesar {
 		else
 			return null;
 	}
-
 }
 
 class SecondExercise extends Caesar {
-
 	protected static String decipher(String cipher, int offset) {
-
 		return FirstExercise.cipher(cipher, 26 - (offset % 26));
 	}
-
 }
 
 class FirstExercise extends Caesar {
@@ -59,12 +51,9 @@ class FirstExercise extends Caesar {
 			} else {
 				result.append(character);
 			}
-
 		}
 		return result.toString();
-
 	}
-
 }
 
 public class Caesar {
@@ -75,17 +64,13 @@ public class Caesar {
 	protected static ArrayList<String> doubleCipher = new ArrayList<>();
 
 	private static void loadData() {
-
 		Path path = Path.of("./resources", "dane_6_1.txt");
 
 		try (BufferedReader bufferedReader = Files.newBufferedReader(path, Charset.forName("UTF-8"))) {
-
 			String line = null;
 
-			while ((line = bufferedReader.readLine()) != null) {
+			while ((line = bufferedReader.readLine()) != null) 
 				sourceWords.add(line);
-			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -95,7 +80,6 @@ public class Caesar {
 		Path path = Path.of("./resources", "dane_6_2.txt");
 
 		try (BufferedReader bufferedReader = Files.newBufferedReader(path, Charset.forName("UTF-8"))) {
-
 			String line = null;
 			Pattern pattern = Pattern.compile("\\S+");
 
@@ -103,6 +87,7 @@ public class Caesar {
 				Matcher matcher = pattern.matcher(line);
 				ArrayList<String> matches = new ArrayList<>();
 
+				// adding each match to the array
 				while (matcher.find())
 					matches.add(matcher.group(0));
 
@@ -120,7 +105,6 @@ public class Caesar {
 	}
 
 	private static void loadDoubleData() {
-
 		Path path = Path.of("./resources", "dane_6_3.txt");
 
 		try (BufferedReader bufferedReader = Files.newBufferedReader(path, Charset.forName("UTF-8"))) {
@@ -132,6 +116,7 @@ public class Caesar {
 				Matcher matcher = pattern.matcher(line);
 				ArrayList<String> matches = new ArrayList<>();
 
+				// adding each match to the array
 				while (matcher.find())
 					matches.add(matcher.group(0));
 
@@ -145,23 +130,27 @@ public class Caesar {
 	}
 
 	public static void main(String[] args) {
-		// loadData();
+		
+		System.out.println("-- First Exercise ---");
+		loadData();
 
-		// for(int i = 0; i < sourceWords.size(); i++)
-		// System.out.println(FirstExercise.cipher(sourceWords.get(i), 107));
+		for(int i = 0; i < sourceWords.size(); i++)
+			System.out.println(FirstExercise.cipher(sourceWords.get(i), 107));
 
+		System.out.println("-- Second Exercise ---");
 		loadDataCipher();
 
 		for (int i = 0; i < cipheredWords.size(); i++)
 			System.out.println(SecondExercise.decipher(cipheredWords.get(i), cipher.get(i)));
 
+		System.out.println("-- Third Exercise ---");
 		loadDoubleData();
 
 		for (int i = 0; i < doubleSource.size(); i++) {
 
 			String word;
 			if ((word = ThirdExercise.incorrect(doubleSource.get(i), doubleCipher.get(i))) != null) {
-				// System.out.println(word);
+				System.out.println(word);
 
 			}
 		}

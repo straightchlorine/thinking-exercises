@@ -170,9 +170,7 @@ class ThirdExercise extends BinaryLoad {
 
 			return originalIndex + 1;
 		}
-
 	}
-
 	
 	/*
 	 * Very similar to the previous one - with sorting reversed.
