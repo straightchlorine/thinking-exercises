@@ -63,6 +63,7 @@ public class Caesar {
 	protected static ArrayList<String> doubleSource = new ArrayList<>();
 	protected static ArrayList<String> doubleCipher = new ArrayList<>();
 
+	// loads data from the first file
 	private static void loadData() {
 		Path path = Path.of("./resources", "dane_6_1.txt");
 
@@ -76,6 +77,7 @@ public class Caesar {
 		}
 	}
 
+	// loads data from the second file
 	private static void loadDataCipher() {
 		Path path = Path.of("./resources", "dane_6_2.txt");
 
@@ -104,6 +106,7 @@ public class Caesar {
 		}
 	}
 
+	// loads data from the fourth file
 	private static void loadDoubleData() {
 		Path path = Path.of("./resources", "dane_6_3.txt");
 
