@@ -57,6 +57,7 @@ class FirstExercise extends Caesar {
 }
 
 public class Caesar {
+	// containers for the input and output data
 	protected static ArrayList<String> sourceWords = new ArrayList<>();
 	protected static ArrayList<String> cipheredWords = new ArrayList<>();
 	protected static ArrayList<Integer> cipher = new ArrayList<>();
