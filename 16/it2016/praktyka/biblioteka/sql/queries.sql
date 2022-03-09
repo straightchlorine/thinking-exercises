@@ -53,7 +53,7 @@ order by Student asc;
 select 
 	sum(books) as 'Wypożyczone lektury'
 from (
-	-- number of books rented out by the people not living in the city
+	-- number of books rented out by the people not living in the city(do not have rooms - thus no duplicates possible)
 	select 
 		count(wypozyczenia.tytul) as books
 	from studenci
