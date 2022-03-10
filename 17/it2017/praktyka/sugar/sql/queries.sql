@@ -2,9 +2,28 @@ use exercise_sweet2017;
 
 -- Zadanie 4.1
 select
-	NIP as NIP,
+	nip as NIP,
     sum(tonnage) as Tonnage
 from cukier
 group by NIP
 order by Tonnage desc
 limit 3;
+
+-- Zadanie 4.2
+select 
+	sum(t.netto) as 'Overall Income'
+from (
+	select 
+		cukier.tonnage * cennik.price as netto
+	from cukier
+	join cennik on year(cukier.dateID) = cennik.yearDate
+) as t;
+
+-- Zadanie 4.3
+select 
+	cennik.yearDate as Data,
+    sum(cukier.tonnage) as 'Tonaż'
+from cukier
+join cennik on year(cukier.dateID) = cennik.yearDate
+group by cennik.yearDate
+order by cennik.yearDate asc;
