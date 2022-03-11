@@ -27,3 +27,57 @@ from cukier
 join cennik on year(cukier.dateID) = cennik.yearDate
 group by cennik.yearDate
 order by cennik.yearDate asc;
+
+-- Zadanie 4.4
+-- calculating discounts
+	-- regular cost
+		select 
+			cukier.nip as NIP,
+			sum(cukier.tonnage * cennik.price) as cost
+		from cukier
+		join cennik on year(cukier.dateID) = cennik.yearDate
+		group by cukier.NIP
+		order by cost desc;
+    
+    -- discounted
+		select 
+			cukier.nip as NIP,
+            case 
+				when sum(cukier.tonnage) > 100 and sum(cukier.tonnage) < 100 then sum(cukier.tonnage * (cennik.price - 0.05))
+                when sum(cukier.tonnage) > 1000 and sum(cukier.tonnage) < 10000 then sum(cukier.tonnage * (cennik.price - 0.1))
+                when sum(cukier.tonnage) > 10000 then sum(cukier.tonnage * (cennik.price - 0.2))
+                else sum(cukier.tonnage * cennik.price)
+            end as cost
+		from cukier
+		join cennik on year(cukier.dateID) = cennik.yearDate
+		group by cukier.NIP
+		order by cost desc;
+
+-- substract regular and discounted cost
+
+select 
+	*
+from (
+(
+	select 
+		cukier.nip as NIP,
+		sum(cukier.tonnage * cennik.price) as cost
+	from cukier
+	join cennik on year(cukier.dateID) = cennik.yearDate
+	order by cost desc
+) as regular,
+
+(
+	select 
+		cukier.nip as NIP,
+		case 
+			when sum(cukier.tonnage) > 100 and sum(cukier.tonnage) < 100 then sum(cukier.tonnage * (cennik.price - 0.05))
+			when sum(cukier.tonnage) > 1000 and sum(cukier.tonnage) < 10000 then sum(cukier.tonnage * (cennik.price - 0.1))
+			when sum(cukier.tonnage) > 10000 then sum(cukier.tonnage * (cennik.price - 0.2))
+			else sum(cukier.tonnage * cennik.price)
+		end as cost
+	from cukier
+	join cennik on year(cukier.dateID) = cennik.yearDate
+	order by cost desc
+) as discounted
+) group by discounted.NIP
