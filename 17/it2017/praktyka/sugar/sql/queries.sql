@@ -29,4 +29,7 @@ group by cennik.yearDate
 order by cennik.yearDate asc;
 
 -- Zadanie 4.4
--- consider entire order; literally fed up with myself
+select
+	cukier.nip,
+    sum(tonnage) over (partition by cukier.nip order by cukier.dateID) tonnages
+from cukier
