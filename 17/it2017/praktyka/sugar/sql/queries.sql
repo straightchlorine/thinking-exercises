@@ -30,6 +30,26 @@ order by cennik.yearDate asc;
 
 -- Zadanie 4.4
 select
-	cukier.nip,
-    sum(tonnage) over (partition by cukier.nip order by cukier.dateID) tonnages
-from cukier
+    sum(t.tonnage * t.discount) as 'Total discount'
+from (
+	select
+		src.id as id,
+		src.nip as nip,
+		src.tonnage as tonnage,
+		src.tonnages as tonnages,
+		case
+			when src.tonnages >= 100 and src.tonnages < 1000 then 0.05
+			when src.tonnages >= 1000 and src.tonnages < 10000 then 0.1
+			when src.tonnages >= 10000 then 0.2
+			else 0.0
+		end as discount
+	from (
+		select 
+			cukier.dateID as id,
+			cukier.nip, 
+			cukier.tonnage as tonnage,
+			sum(tonnage) over (partition by cukier.nip order by cukier.dateID) tonnages
+		from cukier
+		join cennik on year(cukier.dateID) = cennik.yearDate
+	) as src
+) as t;
