@@ -1,0 +1,33 @@
+5.1
+a)
+
+L 113	// ligowe
+P 25	// pucharowe
+T 6	// towarzystkie
+
+b) 
+
+Najwięcej meczy z drużnynami ze swojego miasta rozegrała w roku 2007 - 21 meczy.
+2007 rok - 21 meczy
+
+5.2
+
+Zwinne Mewy, Nocne Pumy
+
+5.3
+
+# rezultat	ilosc
+wygrane		579
+przegrane	452
+remisy		170
+
+5.4
+
+# Liczba sędziów, którzy nie sędziowali w żadnym meczu pucharowym drużyny Galop Kucykowo
+22
+
+
+# Liczba sędziów
+4
+
+Liczba sędziów, którzy nie sędziowali w meczach drużyny Galop Kucykowo wynosi 4.
