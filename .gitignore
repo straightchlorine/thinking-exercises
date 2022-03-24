@@ -8,7 +8,7 @@
 *.pdf
 
 # Excel files
-*.xlsx
+#*.xlsx
 
 # Log file
 *.log
