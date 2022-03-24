@@ -1,4 +1,6 @@
 # thinking-exercises
 programming exercises; concerning mainly problem solving
 
-tools: java, sql (as things stand now)
+in fact mostly data-processing...
+
+tools: excel, java, sql (as things stand now)
