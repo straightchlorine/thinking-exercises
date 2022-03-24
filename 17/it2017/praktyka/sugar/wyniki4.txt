@@ -31,3 +31,6 @@
 Suma rabatów:
 38126.35
 
+5
+
+Liczba miesięcy równa jest 14.
