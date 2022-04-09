@@ -1,6 +1,5 @@
 package partitioning;
 
-import java.io.IOException;
 import java.util.Random;
 
 public class Partitioning {
@@ -17,22 +16,25 @@ public class Partitioning {
 		return number;
 	}
 	
+	private static int binarySearch() {
+		// do
+		return 0;
+	}
+	
 	private static int partitioning(int p, int q) {
 		int pivot = (p + q) / 2;
 		
-		if((a[pivot] % 2 != 0) && (a[pivot + 1] % 2 == 0)) {
+		if((a[pivot] % 2 != 0) && (a[pivot + 1] % 2 == 0))
 			return a[pivot + 1];
-		}
 		
-		if((a[pivot] % 2 == 0) && (a[pivot - 1] % 2 != 0)) {
+		if((a[pivot] % 2 == 0) && (a[pivot - 1] % 2 != 0))
 			return a[pivot];
-		}
 		
-		if((a[pivot] % 2 != 0) && (a[pivot + 1] % 2 != 0)) {
+		if((a[pivot] % 2 != 0) && (a[pivot + 1] % 2 != 0))
 			return partitioning(pivot + 2, q);
-		} else {
+		else 
 			return partitioning(p, pivot - 2);
-		}
+		
 	}
 	
 	private static int findFirstEven() {
@@ -40,7 +42,6 @@ public class Partitioning {
 		int right = a.length - 1;
 		
 		int extracted = partitioning(left, right);
-		
 		
 		return extracted;
 	}
