@@ -26,8 +26,8 @@ class Exercise3second extends NumbersSecondAttempt {
 		int currentGCD = gcd(gcd(numbers.get(0), numbers.get(1)), numbers.get(2));
 		int first = 0;
 		int firstValue = numbers.get(0);
-		int previous = 0;
 		int length = 3;
+		int previous = 0;
 
 		for (int i = 3; i < numbers.size(); i++) {
 			previous = currentGCD;
