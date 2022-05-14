@@ -49,11 +49,11 @@ select
     t.family,
     count(*) over (partition by t.brand)
 from (
-select distinct
-	marki.nazwa_m as brand,
-    perfumy.rodzina_zapachow as family
-from perfumy
-join marki on perfumy.id_marki = marki.id_marki
+	select distinct
+		marki.nazwa_m as brand,
+		perfumy.rodzina_zapachow as family
+	from perfumy
+	join marki on perfumy.id_marki = marki.id_marki
 ) as t
 
 
