@@ -16,9 +16,21 @@ public class Partitioning {
 		return number;
 	}
 	
-	private static int binarySearch() {
-		// do
-		return 0;
+	private static int binarySearch(int n, int t) {
+		int p = 0;
+		int q = n;
+		
+		while(p < q) {
+			int s = (p + q) / 2;
+			if(a[s] < t)
+				q = s + 1;
+			else if(a[s] > t)
+				p = s - 1;
+			else return p;
+		}
+		
+		
+		return -1;
 	}
 	
 	private static int partitioning(int p, int q) {

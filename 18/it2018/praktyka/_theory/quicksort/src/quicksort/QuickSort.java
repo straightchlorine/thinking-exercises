@@ -18,7 +18,7 @@ public class QuickSort {
 		int i = l;
 		
 		for(;i < r; i++) {
-			if((float)A[i]/B[i] >= (float)A[r]/B[r]) {
+			if((float)A[i]/B[i] <= (float)A[r]/B[r]) {
 				b++;
 				swap(A, B, i, b);
 			}
